@@ -9,8 +9,10 @@ import com.whs.demo.util.FileUtil;
 public class NomeTrain {
 
 	public static void main(String[] args) {
+		//System.setSecurityManager(new SecurityManager());
+		String dir = "./";
 		List<String> listName = new ArrayList<String>();
-		List<String> list = FileUtil.readFile("./", "nomes.txt");
+		List<String> list = FileUtil.readFile(dir, "nomes.txt");
 		System.out.println(list.size());
 		List<String> prep = new ArrayList<String>(Arrays.asList(new String[]{"de", "do", "dos", "das", "da"}));
 		String ch = ";";
@@ -37,6 +39,14 @@ public class NomeTrain {
 				System.out.println(sb.toString());
 			}
 		}
+		FileUtil.delete(dir, "nomes-train.txt");
+		FileUtil.createFile(dir, "nomes-train.txt");
+		for( int i = 0; i < listName.size(); i++ ) {
+			String line = "<START:person> "+listName.get(i)+" <END>\n";
+			FileUtil.write(dir, "nomes-train.txt", true, line);
+		}
+		System.out.println("FIM");
+		System.exit(0);
 	}
 
 }
