@@ -15,7 +15,7 @@ public class NomeTrainMain {
 
 	public static void main(String[] args) throws Exception {
 		// Loading the tokenizer model
-		InputStream inputStreamTokenizer = new FileInputStream("/opennlp-models/pt-token.bin");
+		InputStream inputStreamTokenizer = new FileInputStream("/opt/opennlp-models/pt-token.bin");
 		TokenizerModel tokenModel = new TokenizerModel(inputStreamTokenizer);
 
 		// Instantiating the TokenizerME class
